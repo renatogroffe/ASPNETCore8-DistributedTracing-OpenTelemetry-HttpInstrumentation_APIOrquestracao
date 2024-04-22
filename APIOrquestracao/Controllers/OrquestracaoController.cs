@@ -13,7 +13,6 @@ public class OrquestracaoController : ControllerBase
     private readonly ILogger<OrquestracaoController> _logger;
     private readonly IConfiguration _configuration;
     private readonly ContagemClient _contagemClient;
-    private readonly ActivitySource _activitySource;
 
     public OrquestracaoController(ILogger<OrquestracaoController> logger,
         IConfiguration configuration, ContagemClient contagemClient)
@@ -26,8 +25,10 @@ public class OrquestracaoController : ControllerBase
     [HttpGet]
     public async Task<ResultadoOrquestracao> Get()
     {
-        var resultado = new ResultadoOrquestracao();
-        resultado.Horario = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        var resultado = new ResultadoOrquestracao
+        {
+            Horario = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
 
         var urlApiContagem = _configuration["ApiContagem"]!;
         resultado.ContagemPostgres =
