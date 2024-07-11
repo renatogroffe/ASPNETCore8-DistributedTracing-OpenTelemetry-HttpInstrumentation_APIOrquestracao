@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // https://github.com/open-telemetry/opentelemetry-dotnet/tree/e330e57b04fa3e51fe5d63b52bfff891fb5b7961/docs/trace/getting-started-jaeger#collect-and-visualize-traces-using-jaeger
 
 // Documentacaoo do Jaeger:
-// https://www.jaegertracing.io/docs/1.56/
+// https://www.jaegertracing.io/docs/1.58/
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
